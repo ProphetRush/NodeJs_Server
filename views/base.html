@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Prophet NodeJS development">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <script src="/static/js/bootstrap.js"></script>
+</head>
+<body>
+    <header class="navbar navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand">Prophet's Blog</a>
+            </div>
+            <nav class="collapse navbar-collapse" id="bs-navbar">
+                <ul class="nav navbar-nav">
+                    <li><a target="_blank" href="blog.html">My Blog</a> </li>
+                    <li><a target="_blank" href="index.html">IndexPage</a> </li>
+                    <li><a target="_blank" href="/">It's OK</a> </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="important" style="color: #cdbfe3; background-color: #6f5499; padding: 30px 0; margin:-20px 0 20px 0;">
+        <div class="container">
+            <h1 style="color: #fff; font-size:60px">We're just getting started.</h1>
+            <p style="font-size: 24px; line-height: 48px">Learning NodeJS, npm, koa2, nunjucks</p>
+        </div>
+    </div>
+    {% block main %} {% endblock %}
+    <footer style="background-color: #ddd; padding: 20px 0;">
+        <div class="container">
+            <p>
+                <a target="_blank" href="blog.html">Blog</a>
+                <a target="_blank" href="index.html">Index</a>
+                <a target="_blank" href="https://github.com/ProphetRush/">Github</a>
+            </p>
+            <p>Prophet is learning NodeJs and his github page is <a target="_blank" href="https://github.com/ProphetRush/">ProphetRush</a> </p>
+        </div>
+    </footer>
+</body>
+</html>
