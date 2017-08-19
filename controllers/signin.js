@@ -1,7 +1,7 @@
 module.exports={
     'POST /signin': async ctx =>{
         var
-            username = ctx.request.body.username || '',
+            username = ctx.request.body.email || '',
             password = ctx.request.body.password || '';
         if (username === 'Prophet' && password === '123456'){
             ctx.render('signin-ok.html',{

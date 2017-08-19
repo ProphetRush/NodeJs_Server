@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %} {% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Sign in success</h1>
+            <div class="alert alert-success"> <strong>Welcome!</strong> You are sucessfully log in as {{name}}!
+                <p><a target="_blank" href="/">Back to  IndexPage</a></p>
+            </div>
 
-</body>
-</html>
+        </div>
+    </div>
+
+
+{% endblock %}
