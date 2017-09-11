@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block main %}
-<div class="container">
+<div class="container" xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
@@ -12,10 +12,34 @@
                         <p v-if="loading">Loading...</p>
                         <ol>
                             <li v-for="t in todos">
-
+                                <dl>
+                                    <dt contenteditable="true" v-on:blur="update(t, 'name', $event)">{{t.name}}</dt>
+                                    <dd contenteditable="true" v-on:blur="update(t, 'description', $event)">{{t.description}}</dd>
+                                    <dd><a href="#0" v-on:click="remove(t)">Delete</a> </dd>
+                                </dl>
                             </li>
                         </ol>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-plus"></span>Add New Todo</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="createvm" action="#0" v-on:submit.prevent="submit">
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input class="form-control" type="text" v-model="name" placeholder="Pls enter event name">
+                        </div>
+                        <div class="form-group">
+                            <label>Description:</label>
+                            <input type="text" v-model="description" class="form-control" placeholder="Pls enter description">
+                        </div>
+                        <button type="text" class="btn btn-default">Create</button>
+                    </form>
                 </div>
             </div>
         </div>

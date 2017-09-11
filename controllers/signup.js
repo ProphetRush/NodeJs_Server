@@ -29,6 +29,9 @@ module.exports={
                     console.log('Sucessfully created:' + JSON.stringify(newUser));
                     ctx.render('signup-ok.html');
                 }else{
+                    ctx.render('signup.html', {
+                        usernameTip: 'Must input a valid username!'
+                    });
                     console.log('Two password must be same!')
                 }
             }else{
