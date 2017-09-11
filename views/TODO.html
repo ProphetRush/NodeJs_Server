@@ -1,3 +1,24 @@
 {% extends "base.html" %} {% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-th-list"></span> TODO List</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="vm">
+                        <h3 v-text="title"></h3>
+                        <p v-if="loading">Loading...</p>
+                        <ol>
+                            <li v-for="t in todos">
 
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
