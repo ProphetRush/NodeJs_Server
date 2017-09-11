@@ -32,5 +32,5 @@ app.use(templating('views',{
 }));
 
 app.use(controller());
-app.listen(3000);
+app.listen(3000, host="0.0.0.0");
 console.log("Server is running...")
