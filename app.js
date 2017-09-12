@@ -5,7 +5,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const bodyParser = require('koa-bodyparser');
 const controller = require('./controller')
 const app = new Koa();
-
+const rest = require('./rest')
 
 app.use(async (ctx, next)=>{
     console.log(`Process ${ctx.request.method}: ${ctx.request.url}...`);
@@ -22,7 +22,7 @@ if(! isProduction){
 }
 
 app.use(bodyParser());
-
+app.use(rest.restify());
 
 app.use(staticFileReg('/static', __dirname+'/static'));
 
