@@ -14,8 +14,8 @@
                         <ol>
                             <li v-for="t in todos">
                                 <dl>
-                                    <dt contenteditable="true" v-on:blur="update(t, 'name', $event)">{{t.name}}</dt>
-                                    <dd contenteditable="true" v-on:blur="update(t, 'description', $event)">{{t.description}}</dd>
+                                    <dt contenteditable="true" v-on:blur="update(t, 'name', $event)" v-text="t.name"></dt>
+                                    <dd contenteditable="true" v-on:blur="update(t, 'description', $event)" v-text="t.description"></dd>
                                     <dd><a href="#0" v-on:click="remove(t)">Delete</a> </dd>
                                 </dl>
                             </li>

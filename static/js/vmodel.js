@@ -29,7 +29,7 @@ $(function () {
                 var that = this;
                 that.loading = true;
                 that.$resource('/api/todos').get().then(function (resp) {
-                    that.loading = true;
+                    that.loading = false;
                     resp.json().then(function (result) {
                         that.todos = result.todos;
                     });
@@ -58,7 +58,7 @@ $(function () {
                 if(t[prop] === todo[prop]){
                     return;
                 }
-                that.$resource('/api/todos' + todos.id).update(t).then(function (resp) {
+                that.$resource('/api/todos/' + todo.id).update(t).then(function (resp) {
                     resp.json().then(function (r) {
                         todo.name = r.name;
                         todo.description = r.description;

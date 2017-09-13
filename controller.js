@@ -13,7 +13,7 @@ function addMapping(router, mapping) {
             console.log(`register URL mapping: POST ${path}`);
         } else if (url.startsWith('PUT ')) {
             var path = url.substring(4);
-            router.pUT(path, mapping[url]);
+            router.put(path, mapping[url]);
             console.log(`register URL mapping: PUT ${path}`);
         } else if (url.startsWith('DELETE ')) {
             var path = url.substring(7);
