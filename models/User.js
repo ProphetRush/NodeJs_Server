@@ -11,3 +11,4 @@ module.exports = db.defineModel('user', {
     username: db.STRING(30),
     pwd: db.STRING(45)
 });
+

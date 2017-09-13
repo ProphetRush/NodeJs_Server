@@ -1,5 +1,6 @@
 const APIError = require('../rest').APIError;
-
+const model = require('../model');
+let todoModel = model.todos;
 
 
 var gid = 10000;
@@ -10,6 +11,11 @@ function nextID() {
 }
 
 var todos = [];
+todoModel.findAll().then(function (resp) {
+    for(t of resp) todos.push(t.dataValues);
+}).catch(function (e) {
+    console.log(e);
+});
 
 
 
@@ -51,11 +57,11 @@ module.exports={
         if(!t.description || !t.description.trim()){
             throw new APIError('Invalid input', 'Missing description!');
         }
-        todo = {
-            id: nextID(),
+        todo = await todoModel.create({
             name: t.name.trim(),
-            description: t.description.trim()
-        };
+            description: t.description.trim(),
+            duetime: null
+        });
         todos.push(todo);
         ctx.rest(todo);
     },

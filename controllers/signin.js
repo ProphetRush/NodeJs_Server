@@ -4,6 +4,8 @@ const crypto = require('crypto');
 
 let User = model.User;
 
+
+
 module.exports={
     'POST /signin': async ctx =>{
         var

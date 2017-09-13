@@ -116,7 +116,7 @@ function defineModel(name, attributes) {
 
 
 //let type attrs in exported object points to the type object in sequenlize package.
-const TYPES = ['STRING', 'INTEGER', 'BIGINT', 'TEXT', 'DOUBLE', 'DATEONLY', 'BOOLEAN'];
+const TYPES = ['STRING', 'INTEGER', 'BIGINT', 'TEXT', 'DOUBLE', 'DATE', 'BOOLEAN'];
 
 var exp = {
     defineModel: defineModel,
