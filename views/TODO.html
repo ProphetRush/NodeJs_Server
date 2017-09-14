@@ -11,15 +11,27 @@
                     <div id="vm">
                         <h3 v-text="title"></h3>
                         <p v-if="loading">Loading...</p>
-                        <ol>
-                            <li v-for="t in todos">
-                                <dl>
-                                    <dt contenteditable="true" v-on:blur="update(t, 'name', $event)" v-text="t.name"></dt>
-                                    <dd contenteditable="true" v-on:blur="update(t, 'description', $event)" v-text="t.description"></dd>
-                                    <dd><a href="#0" v-on:click="remove(t)">Delete</a> </dd>
-                                </dl>
-                            </li>
-                        </ol>
+                        <div class="panel-body">
+                            <ol class="table">
+                                <li v-for="t in todos" style="list-style-type: None">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title" contenteditable="true" v-on:blur="update(t, 'name', $event)" v-text="t.name"></h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <p contenteditable="true" v-on:blur="update(t, 'description', $event)" v-text="t.description"></p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button class="btn btn-default" v-on:click="remove(t)">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </div>

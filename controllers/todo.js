@@ -80,20 +80,32 @@ module.exports={
         if(index == -1){
             throw new APIError('not found', 'todo not found by id: '+ctx.params.id);
         }
-        todo = todos[index];
+        todo = (await todoModel.findAll({
+            where:{
+                id: ctx.params.id
+            }
+        }))[0];
         todo.name = t.name.trim();
         todo.description = t.description.trim();
-        ctx.rest(todo);
+        await todo.save();
+        todos[index] = todo.dataValues;
+        ctx.rest(todo.dataValues);
     },
 
     'DELETE /api/todos/:id': async (ctx) => {
         var index = -1;
+        var todo;
         for(var i=0; i<todos.length; i++){
             if(todos[i].id === ctx.params.id) index = i;
         }
         if(index == -1){
             throw new APIError('not found', 'todo not found by id: '+ctx.params.id);
         }
+        todo = await((await todoModel.findAll({
+            where:{
+                id: ctx.params.id
+            }
+        }))[0]).destroy();
         ctx.rest(todos.splice(index,1)[0]);
     }
 
